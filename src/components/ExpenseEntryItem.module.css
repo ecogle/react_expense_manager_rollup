@@ -3,3 +3,7 @@ div.itemStyle{
     font-size: 14pt;
     font-family: 'Times New Roman', Times, serif;
 }
+
+.hidden{
+    display: none;
+}

@@ -5,8 +5,9 @@ import ExpenseEntryItem from './components/ExpenseEntryItem';
 import WidgetElement from './components/Widget';
 
 const item = {
+   "id":1,
    "item":"Mango Juice",
-   "amount":30.00,
+   "amount":"30.00",
    "spend_date":"10-10-2020",
    "category": "food",
 }
