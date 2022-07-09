@@ -5,6 +5,9 @@ import ExpenseEntryItem from './components/ExpenseEntryItem';
 import WidgetElement from './components/Widget';
 import ExpenseEntryItemList from './components/ExpenseEntryItemList';
 import MessageWithEvent from './components/MessageWithEvent';
+import Clock from './components/Clock';
+import Counter from './components/Counter';
+
 
 const item = 
    [{
@@ -36,6 +39,8 @@ ReactDOM.render(
       <WidgetElement name="Chad" list="Hot Dogs, Buns, Mustard"/>
       <ExpenseEntryItemList items={item}/>
       {/* <MessageWithEvent name="Chad"/> */}
+      {/*<Clock />*/}
+      <Counter />
    </React.StrictMode>,
    document.getElementById('root')
 );
