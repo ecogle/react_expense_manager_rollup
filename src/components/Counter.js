@@ -7,7 +7,7 @@ class Counter extends React.Component{
         this.state={
             "tick": this.num,
         }
-        setInterval(()=> this.setTick(),1000);
+        setInterval(()=> this.setTick(),100);
     }
 
     setTick(){

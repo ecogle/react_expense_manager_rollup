@@ -2255,7 +2255,7 @@
 	    };
 	    setInterval(function () {
 	      return _this.setTick();
-	    }, 1000);
+	    }, 100);
 	    return _this;
 	  }
 
