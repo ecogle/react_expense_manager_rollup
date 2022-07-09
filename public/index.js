@@ -636,7 +636,7 @@
 
 	var date = new Date().toTimeString();
 
-	var HelloWorld = /*#__PURE__*/function (_React$Component) {
+	/*#__PURE__*/(function (_React$Component) {
 	  _inherits(HelloWorld, _React$Component);
 
 	  var _super = _createSuper(HelloWorld);
@@ -655,7 +655,7 @@
 	  }]);
 
 	  return HelloWorld;
-	}(React.Component);
+	})(React.Component);
 
 	function styleInject(css, ref) {
 	  if ( ref === void 0 ) ref = {};
@@ -1839,7 +1839,7 @@
 	  return FormattedDate;
 	}(React.Component);
 
-	var ExpenseEntryItem = /*#__PURE__*/function (_React$Component) {
+	/*#__PURE__*/(function (_React$Component) {
 	  _inherits(ExpenseEntryItem, _React$Component);
 
 	  var _super = _createSuper(ExpenseEntryItem);
@@ -1866,15 +1866,7 @@
 	  }]);
 
 	  return ExpenseEntryItem;
-	}(React.Component);
-
-	function WidgetElement(props) {
-	  var name = props.name;
-	  var list = props.list;
-	  return /*#__PURE__*/React.createElement("div", {
-	    className: mine.itemStyle
-	  }, /*#__PURE__*/React.createElement("p", null, "Hello ", name, ", here is my list: ", list));
-	}
+	})(React.Component);
 
 	var uncurryThis$2 = functionUncurryThis;
 	var aCallable = aCallable$2;
@@ -2092,7 +2084,7 @@
 	  }
 	});
 
-	var ExpenseEntryItemList = /*#__PURE__*/function (_React$Component) {
+	/*#__PURE__*/(function (_React$Component) {
 	  _inherits(ExpenseEntryItemList, _React$Component);
 
 	  var _super = _createSuper(ExpenseEntryItemList);
@@ -2146,7 +2138,7 @@
 	  }]);
 
 	  return ExpenseEntryItemList;
-	}(React.Component);
+	})(React.Component);
 
 	/*#__PURE__*/(function (_React$Component) {
 	  _inherits(MessageWithEvent, _React$Component);
@@ -2257,7 +2249,7 @@
 	  }, { unsafe: true });
 	}
 
-	var Clock = /*#__PURE__*/function (_React$Component) {
+	/*#__PURE__*/(function (_React$Component) {
 	  _inherits(Clock, _React$Component);
 
 	  var _super = _createSuper(Clock);
@@ -2297,9 +2289,9 @@
 	  }]);
 
 	  return Clock;
-	}(React.Component);
+	})(React.Component);
 
-	var Counter = /*#__PURE__*/function (_React$Component) {
+	/*#__PURE__*/(function (_React$Component) {
 	  _inherits(Counter, _React$Component);
 
 	  var _super = _createSuper(Counter);
@@ -2340,21 +2332,7 @@
 	  }]);
 
 	  return Counter;
-	}(React.Component);
-
-	function ClockUsingHooks() {
-	  var _useState = react.exports.useState(new Date()),
-	      _useState2 = _slicedToArray(_useState, 2),
-	      currentDateTime = _useState2[0],
-	      setCurrentDateTime = _useState2[1];
-
-	  setInterval(function () {
-	    return setCurrentDateTime(new Date());
-	  }, 1000);
-	  return /*#__PURE__*/React.createElement("div", {
-	    className: "clock-using-hooks"
-	  }, /*#__PURE__*/React.createElement("p", null, "This is the date from a functional stateful component"), /*#__PURE__*/React.createElement("p", null, "Current Time is: ", currentDateTime.toTimeString()));
-	}
+	})(React.Component);
 
 	// iterable DOM collections
 	// flag - `iterable` interface - 'entries', 'keys', 'values', 'forEach' methods
@@ -2571,33 +2549,7 @@
 	  spendDate: "2020-11-04",
 	  category: "Academic"
 	}];
-	var item = [{
-	  "id": 1,
-	  "item": "Mango Juice",
-	  "amount": 30.5,
-	  "spend_date": "10-10-2020",
-	  "category": "food"
-	}, {
-	  "id": 2,
-	  "item": "Orange Juice",
-	  "amount": 20.7,
-	  "spend_date": "8-15-2020",
-	  "category": "food"
-	}, {
-	  "id": 3,
-	  "item": "Peach Juice",
-	  "spend_date": "09-15-2021",
-	  "amount": 40.3,
-	  "category": "food"
-	}];
-	ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(HelloWorld, null), /*#__PURE__*/React.createElement(ExpenseEntryItem, {
-	  items: item
-	}), /*#__PURE__*/React.createElement(WidgetElement, {
-	  name: "Chad",
-	  list: "Hot Dogs, Buns, Mustard"
-	}), /*#__PURE__*/React.createElement(ExpenseEntryItemList, {
-	  items: item
-	}), /*#__PURE__*/React.createElement(Clock, null), /*#__PURE__*/React.createElement(Counter, null), /*#__PURE__*/React.createElement(ClockUsingHooks, null), /*#__PURE__*/React.createElement(ExpenseEntryItemListFn, {
+	ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(ExpenseEntryItemListFn, {
 	  items: items
 	})), document.getElementById('root'));
 

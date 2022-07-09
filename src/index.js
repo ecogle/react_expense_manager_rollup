@@ -49,14 +49,14 @@ const item =
 
 ReactDOM.render(
    <React.StrictMode>
-      <HelloWorld />
-      <ExpenseEntryItem items={item}/>
-      <WidgetElement name="Chad" list="Hot Dogs, Buns, Mustard"/>
-      <ExpenseEntryItemList items={item}/>
+      {/* <HelloWorld /> */}
+      {/* <ExpenseEntryItem items={item}/> */}
+      {/* <WidgetElement name="Chad" list="Hot Dogs, Buns, Mustard"/> */}
+      {/* <ExpenseEntryItemList items={item}/> */}
       {/* <MessageWithEvent name="Chad"/> */}
-      <Clock />
-      <Counter />
-      <ClockUsingHooks />
+      {/* <Clock /> */}
+      {/* <Counter /> */}
+      {/* <ClockUsingHooks /> */}
       <ExpenseEntryItemListFn items={items} />
    </React.StrictMode>,
    document.getElementById('root')

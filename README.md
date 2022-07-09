@@ -2,4 +2,4 @@
 
 - This is the source for this application tutorial
 
-**Left off here https://www.tutorialspoint.com/reactjs/reactjs_state.htm**
+**Left off here https://www.tutorialspoint.com/reactjs/reactjs_component_life_cycle.htm**
