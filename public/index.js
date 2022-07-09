@@ -2081,7 +2081,7 @@
 	  _createClass(MessageWithEvent, [{
 	    key: "logEventToConsole",
 	    value: function logEventToConsole(e) {
-	      alert(e.target.innerHTML);
+	      console.log(e.target.innerHTML);
 	    }
 	  }, {
 	    key: "render",
