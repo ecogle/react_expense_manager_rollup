@@ -9,7 +9,6 @@ class ExpenseEntryItem extends React.Component{
         super(props)
     }
     render(){
-        debugger;
         return(
         <div className="ee_items">
             <div><p className={styles.hidden}>1</p></div>
