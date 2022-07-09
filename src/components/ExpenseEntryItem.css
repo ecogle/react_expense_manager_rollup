@@ -35,3 +35,32 @@ tr.highlight td{
     background-color: rgb(251, 251, 177);
     color: rgb(28, 93, 139);
 }
+
+.normal-clock{
+    float: left;
+    background-color: aquamarine;
+    width:30%;
+    height: 100px;
+    padding:3px;
+}
+
+.counter{
+    float: left;
+    background-color: rgb(18, 186, 186);
+    width: 30%;
+    height: 100px;
+    padding:3px;
+}
+
+.counter *{
+    text-align: center;
+    
+}
+
+.clock-using-hooks{
+    float: left;
+    background-color: bisque;
+    width:30%;  
+    height: 100px;
+    padding:3px;
+}

@@ -7,7 +7,7 @@ class Counter extends React.Component{
         this.state={
             "tick": this.num,
         }
-        setInterval(()=> this.setTick(),100);
+        setInterval(()=> this.setTick(),1000);
     }
 
     setTick(){
@@ -20,7 +20,8 @@ class Counter extends React.Component{
     render(){
         return(
             <div className="counter">
-                <p>{this.state.tick}</p>
+                <h3>Custom Counter</h3>
+                <p>Counter: {this.state.tick}</p>
             </div>
         )
     }

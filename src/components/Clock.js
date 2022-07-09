@@ -21,7 +21,9 @@ class Clock extends React.Component{
 
     render(){
         return (
-            <div><p>The current time is {this.state.date.toString()}</p></div>
+            <div className="normal-clock">
+                <p>The current time is {this.state.date.toString()}</p>
+            </div>
         )
     }
 }

@@ -575,6 +575,65 @@
 	  };
 	}
 
+	function _slicedToArray(arr, i) {
+	  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+	}
+
+	function _arrayWithHoles(arr) {
+	  if (Array.isArray(arr)) return arr;
+	}
+
+	function _iterableToArrayLimit(arr, i) {
+	  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+
+	  if (_i == null) return;
+	  var _arr = [];
+	  var _n = true;
+	  var _d = false;
+
+	  var _s, _e;
+
+	  try {
+	    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+	      _arr.push(_s.value);
+
+	      if (i && _arr.length === i) break;
+	    }
+	  } catch (err) {
+	    _d = true;
+	    _e = err;
+	  } finally {
+	    try {
+	      if (!_n && _i["return"] != null) _i["return"]();
+	    } finally {
+	      if (_d) throw _e;
+	    }
+	  }
+
+	  return _arr;
+	}
+
+	function _unsupportedIterableToArray(o, minLen) {
+	  if (!o) return;
+	  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+	  var n = Object.prototype.toString.call(o).slice(8, -1);
+	  if (n === "Object" && o.constructor) n = o.constructor.name;
+	  if (n === "Map" || n === "Set") return Array.from(o);
+	  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+	}
+
+	function _arrayLikeToArray(arr, len) {
+	  if (len == null || len > arr.length) len = arr.length;
+
+	  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+	  return arr2;
+	}
+
+	function _nonIterableRest() {
+	  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+	}
+
 	var date = new Date().toTimeString();
 
 	var HelloWorld = /*#__PURE__*/function (_React$Component) {
@@ -625,7 +684,7 @@
 	  }
 	}
 
-	var css_248z$1 = ".ee_items{\r\n    border: 1px solid coral;\r\n    width:15%;\r\n}\r\n.ee_items *{\r\n    padding: 3px;\r\n}\r\n.ee_items div em{\r\n    text-decoration: underline;\r\n}\r\ntable, th, tr, td{\r\n    border:1px solid black;\r\n    border-collapse: collapse;\r\n}\r\ntable td{\r\n    text-align: right;\r\n    padding:2px;\r\n    width:100px;\r\n}\r\n\r\ntd:first-child{\r\n    text-align: center;\r\n    font-weight: bold;\r\n}\r\n\r\ntr:nth-child(even) td{\r\n    background-color: bisque;\r\n}\r\n\r\ntr:nth-child(odd) td{\r\n    background-color: white;\r\n}\r\n\r\ntr.highlight td{\r\n    background-color: rgb(251, 251, 177);\r\n    color: rgb(28, 93, 139);\r\n}";
+	var css_248z$1 = ".ee_items{\r\n    border: 1px solid coral;\r\n    width:15%;\r\n}\r\n.ee_items *{\r\n    padding: 3px;\r\n}\r\n.ee_items div em{\r\n    text-decoration: underline;\r\n}\r\ntable, th, tr, td{\r\n    border:1px solid black;\r\n    border-collapse: collapse;\r\n}\r\ntable td{\r\n    text-align: right;\r\n    padding:2px;\r\n    width:100px;\r\n}\r\n\r\ntd:first-child{\r\n    text-align: center;\r\n    font-weight: bold;\r\n}\r\n\r\ntr:nth-child(even) td{\r\n    background-color: bisque;\r\n}\r\n\r\ntr:nth-child(odd) td{\r\n    background-color: white;\r\n}\r\n\r\ntr.highlight td{\r\n    background-color: rgb(251, 251, 177);\r\n    color: rgb(28, 93, 139);\r\n}\r\n\r\n.normal-clock{\r\n    float: left;\r\n    background-color: aquamarine;\r\n    width:30%;\r\n    height: 100px;\r\n    padding:3px;\r\n}\r\n\r\n.counter{\r\n    float: left;\r\n    background-color: rgb(18, 186, 186);\r\n    width: 30%;\r\n    height: 100px;\r\n    padding:3px;\r\n}\r\n\r\n.counter *{\r\n    text-align: center;\r\n    \r\n}\r\n\r\n.clock-using-hooks{\r\n    float: left;\r\n    background-color: bisque;\r\n    width:30%;  \r\n    height: 100px;\r\n    padding:3px;\r\n}";
 	styleInject(css_248z$1);
 
 	var css_248z = "div.ExpenseEntryItem-module_itemStyle__fyiN5{\r\n    color:brown;\r\n    font-size: 14pt;\r\n    font-family: 'Times New Roman', Times, serif;\r\n}\r\n\r\n.ExpenseEntryItem-module_hidden__B-jO8{\r\n    display: none;\r\n}";
@@ -637,7 +696,7 @@
 	};
 
 	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-	var global$b =
+	var global$c =
 	  // eslint-disable-next-line es-x/no-global-this -- safe
 	  check(typeof globalThis == 'object' && globalThis) ||
 	  check(typeof window == 'object' && window) ||
@@ -649,7 +708,7 @@
 
 	var objectGetOwnPropertyDescriptor = {};
 
-	var fails$c = function (exec) {
+	var fails$d = function (exec) {
 	  try {
 	    return !!exec();
 	  } catch (error) {
@@ -657,17 +716,17 @@
 	  }
 	};
 
-	var fails$b = fails$c;
+	var fails$c = fails$d;
 
 	// Detect IE8's incomplete defineProperty implementation
-	var descriptors = !fails$b(function () {
+	var descriptors = !fails$c(function () {
 	  // eslint-disable-next-line es-x/no-object-defineproperty -- required for testing
 	  return Object.defineProperty({}, 1, { get: function () { return 7; } })[1] != 7;
 	});
 
-	var fails$a = fails$c;
+	var fails$b = fails$d;
 
-	var functionBindNative = !fails$a(function () {
+	var functionBindNative = !fails$b(function () {
 	  // eslint-disable-next-line es-x/no-function-prototype-bind -- safe
 	  var test = (function () { /* empty */ }).bind();
 	  // eslint-disable-next-line no-prototype-builtins -- safe
@@ -732,14 +791,14 @@
 	};
 
 	var uncurryThis$c = functionUncurryThis;
-	var fails$9 = fails$c;
+	var fails$a = fails$d;
 	var classof$5 = classofRaw$1;
 
 	var $Object$3 = Object;
 	var split = uncurryThis$c(''.split);
 
 	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var indexedObject = fails$9(function () {
+	var indexedObject = fails$a(function () {
 	  // throws an error in rhino, see https://github.com/mozilla/rhino/issues/346
 	  // eslint-disable-next-line no-prototype-builtins -- safe
 	  return !$Object$3('z').propertyIsEnumerable(0);
@@ -776,7 +835,7 @@
 	  return typeof it == 'object' ? it !== null : isCallable$b(it);
 	};
 
-	var global$a = global$b;
+	var global$b = global$c;
 	var isCallable$a = isCallable$c;
 
 	var aFunction = function (argument) {
@@ -784,7 +843,7 @@
 	};
 
 	var getBuiltIn$4 = function (namespace, method) {
-	  return arguments.length < 2 ? aFunction(global$a[namespace]) : global$a[namespace] && global$a[namespace][method];
+	  return arguments.length < 2 ? aFunction(global$b[namespace]) : global$b[namespace] && global$b[namespace][method];
 	};
 
 	var uncurryThis$b = functionUncurryThis;
@@ -795,11 +854,11 @@
 
 	var engineUserAgent = getBuiltIn$3('navigator', 'userAgent') || '';
 
-	var global$9 = global$b;
+	var global$a = global$c;
 	var userAgent = engineUserAgent;
 
-	var process = global$9.process;
-	var Deno = global$9.Deno;
+	var process = global$a.process;
+	var Deno = global$a.Deno;
 	var versions = process && process.versions || Deno && Deno.version;
 	var v8 = versions && versions.v8;
 	var match, version;
@@ -826,10 +885,10 @@
 	/* eslint-disable es-x/no-symbol -- required for testing */
 
 	var V8_VERSION$1 = engineV8Version;
-	var fails$8 = fails$c;
+	var fails$9 = fails$d;
 
 	// eslint-disable-next-line es-x/no-object-getownpropertysymbols -- required for testing
-	var nativeSymbol = !!Object.getOwnPropertySymbols && !fails$8(function () {
+	var nativeSymbol = !!Object.getOwnPropertySymbols && !fails$9(function () {
 	  var symbol = Symbol();
 	  // Chrome 38 Symbol has incorrect toString conversion
 	  // `get-own-property-symbols` polyfill symbols converted to object are not Symbol instances
@@ -908,24 +967,24 @@
 
 	var shared$3 = {exports: {}};
 
-	var global$8 = global$b;
+	var global$9 = global$c;
 
 	// eslint-disable-next-line es-x/no-object-defineproperty -- safe
 	var defineProperty$1 = Object.defineProperty;
 
 	var defineGlobalProperty$3 = function (key, value) {
 	  try {
-	    defineProperty$1(global$8, key, { value: value, configurable: true, writable: true });
+	    defineProperty$1(global$9, key, { value: value, configurable: true, writable: true });
 	  } catch (error) {
-	    global$8[key] = value;
+	    global$9[key] = value;
 	  } return value;
 	};
 
-	var global$7 = global$b;
+	var global$8 = global$c;
 	var defineGlobalProperty$2 = defineGlobalProperty$3;
 
 	var SHARED = '__core-js_shared__';
-	var store$3 = global$7[SHARED] || defineGlobalProperty$2(SHARED, {});
+	var store$3 = global$8[SHARED] || defineGlobalProperty$2(SHARED, {});
 
 	var sharedStore = store$3;
 
@@ -973,7 +1032,7 @@
 	  return 'Symbol(' + (key === undefined ? '' : key) + ')_' + toString$4(++id + postfix, 36);
 	};
 
-	var global$6 = global$b;
+	var global$7 = global$c;
 	var shared$2 = shared$3.exports;
 	var hasOwn$7 = hasOwnProperty_1;
 	var uid$1 = uid$2;
@@ -981,7 +1040,7 @@
 	var USE_SYMBOL_AS_UID = useSymbolAsUid;
 
 	var WellKnownSymbolsStore = shared$2('wks');
-	var Symbol$2 = global$6.Symbol;
+	var Symbol$2 = global$7.Symbol;
 	var symbolFor = Symbol$2 && Symbol$2['for'];
 	var createWellKnownSymbol = USE_SYMBOL_AS_UID ? Symbol$2 : Symbol$2 && Symbol$2.withoutSetter || uid$1;
 
@@ -1034,23 +1093,23 @@
 	  return isSymbol(key) ? key : key + '';
 	};
 
-	var global$5 = global$b;
+	var global$6 = global$c;
 	var isObject$3 = isObject$6;
 
-	var document$1 = global$5.document;
+	var document$1 = global$6.document;
 	// typeof document.createElement is 'object' in old IE
 	var EXISTS$1 = isObject$3(document$1) && isObject$3(document$1.createElement);
 
-	var documentCreateElement = function (it) {
+	var documentCreateElement$1 = function (it) {
 	  return EXISTS$1 ? document$1.createElement(it) : {};
 	};
 
 	var DESCRIPTORS$6 = descriptors;
-	var fails$7 = fails$c;
-	var createElement = documentCreateElement;
+	var fails$8 = fails$d;
+	var createElement = documentCreateElement$1;
 
 	// Thanks to IE8 for its funny defineProperty
-	var ie8DomDefine = !DESCRIPTORS$6 && !fails$7(function () {
+	var ie8DomDefine = !DESCRIPTORS$6 && !fails$8(function () {
 	  // eslint-disable-next-line es-x/no-object-defineproperty -- required for testing
 	  return Object.defineProperty(createElement('div'), 'a', {
 	    get: function () { return 7; }
@@ -1083,11 +1142,11 @@
 	var objectDefineProperty = {};
 
 	var DESCRIPTORS$4 = descriptors;
-	var fails$6 = fails$c;
+	var fails$7 = fails$d;
 
 	// V8 ~ Chrome 36-
 	// https://bugs.chromium.org/p/v8/issues/detail?id=3334
-	var v8PrototypeDefineBug = DESCRIPTORS$4 && fails$6(function () {
+	var v8PrototypeDefineBug = DESCRIPTORS$4 && fails$7(function () {
 	  // eslint-disable-next-line es-x/no-object-defineproperty -- required for testing
 	  return Object.defineProperty(function () { /* empty */ }, 'prototype', {
 	    value: 42,
@@ -1154,7 +1213,7 @@
 	var definePropertyModule$2 = objectDefineProperty;
 	var createPropertyDescriptor = createPropertyDescriptor$2;
 
-	var createNonEnumerableProperty$2 = DESCRIPTORS$2 ? function (object, key, value) {
+	var createNonEnumerableProperty$3 = DESCRIPTORS$2 ? function (object, key, value) {
 	  return definePropertyModule$2.f(object, key, createPropertyDescriptor(1, value));
 	} : function (object, key, value) {
 	  object[key] = value;
@@ -1196,11 +1255,11 @@
 
 	var inspectSource$3 = store$1.inspectSource;
 
-	var global$4 = global$b;
+	var global$5 = global$c;
 	var isCallable$5 = isCallable$c;
 	var inspectSource$2 = inspectSource$3;
 
-	var WeakMap$2 = global$4.WeakMap;
+	var WeakMap$2 = global$5.WeakMap;
 
 	var nativeWeakMap = isCallable$5(WeakMap$2) && /native code/.test(inspectSource$2(WeakMap$2));
 
@@ -1216,18 +1275,18 @@
 	var hiddenKeys$3 = {};
 
 	var NATIVE_WEAK_MAP = nativeWeakMap;
-	var global$3 = global$b;
+	var global$4 = global$c;
 	var uncurryThis$7 = functionUncurryThis;
 	var isObject$1 = isObject$6;
-	var createNonEnumerableProperty$1 = createNonEnumerableProperty$2;
+	var createNonEnumerableProperty$2 = createNonEnumerableProperty$3;
 	var hasOwn$4 = hasOwnProperty_1;
 	var shared = sharedStore;
 	var sharedKey = sharedKey$1;
 	var hiddenKeys$2 = hiddenKeys$3;
 
 	var OBJECT_ALREADY_INITIALIZED = 'Object already initialized';
-	var TypeError$1 = global$3.TypeError;
-	var WeakMap$1 = global$3.WeakMap;
+	var TypeError$1 = global$4.TypeError;
+	var WeakMap$1 = global$4.WeakMap;
 	var set, get, has;
 
 	var enforce = function (it) {
@@ -1266,7 +1325,7 @@
 	  set = function (it, metadata) {
 	    if (hasOwn$4(it, STATE)) throw new TypeError$1(OBJECT_ALREADY_INITIALIZED);
 	    metadata.facade = it;
-	    createNonEnumerableProperty$1(it, STATE, metadata);
+	    createNonEnumerableProperty$2(it, STATE, metadata);
 	    return metadata;
 	  };
 	  get = function (it) {
@@ -1285,7 +1344,7 @@
 	  getterFor: getterFor
 	};
 
-	var fails$5 = fails$c;
+	var fails$6 = fails$d;
 	var isCallable$4 = isCallable$c;
 	var hasOwn$3 = hasOwnProperty_1;
 	var DESCRIPTORS = descriptors;
@@ -1298,7 +1357,7 @@
 	// eslint-disable-next-line es-x/no-object-defineproperty -- safe
 	var defineProperty = Object.defineProperty;
 
-	var CONFIGURABLE_LENGTH = DESCRIPTORS && !fails$5(function () {
+	var CONFIGURABLE_LENGTH = DESCRIPTORS && !fails$6(function () {
 	  return defineProperty(function () { /* empty */ }, 'length', { value: 8 }).length !== 8;
 	});
 
@@ -1531,7 +1590,7 @@
 	  }
 	};
 
-	var fails$4 = fails$c;
+	var fails$5 = fails$d;
 	var isCallable$2 = isCallable$c;
 
 	var replacement = /#|\.prototype\./;
@@ -1540,7 +1599,7 @@
 	  var value = data[normalize(feature)];
 	  return value == POLYFILL ? true
 	    : value == NATIVE ? false
-	    : isCallable$2(detection) ? fails$4(detection)
+	    : isCallable$2(detection) ? fails$5(detection)
 	    : !!detection;
 	};
 
@@ -1554,9 +1613,9 @@
 
 	var isForced_1 = isForced$1;
 
-	var global$2 = global$b;
+	var global$3 = global$c;
 	var getOwnPropertyDescriptor = objectGetOwnPropertyDescriptor.f;
-	var createNonEnumerableProperty = createNonEnumerableProperty$2;
+	var createNonEnumerableProperty$1 = createNonEnumerableProperty$3;
 	var defineBuiltIn$2 = defineBuiltIn$3;
 	var defineGlobalProperty = defineGlobalProperty$3;
 	var copyConstructorProperties = copyConstructorProperties$1;
@@ -1583,11 +1642,11 @@
 	  var STATIC = options.stat;
 	  var FORCED, target, key, targetProperty, sourceProperty, descriptor;
 	  if (GLOBAL) {
-	    target = global$2;
+	    target = global$3;
 	  } else if (STATIC) {
-	    target = global$2[TARGET] || defineGlobalProperty(TARGET, {});
+	    target = global$3[TARGET] || defineGlobalProperty(TARGET, {});
 	  } else {
-	    target = (global$2[TARGET] || {}).prototype;
+	    target = (global$3[TARGET] || {}).prototype;
 	  }
 	  if (target) for (key in source) {
 	    sourceProperty = source[key];
@@ -1603,7 +1662,7 @@
 	    }
 	    // add a flag to not completely full polyfills
 	    if (options.sham || (targetProperty && targetProperty.sham)) {
-	      createNonEnumerableProperty(sourceProperty, 'sham', true);
+	      createNonEnumerableProperty$1(sourceProperty, 'sham', true);
 	    }
 	    defineBuiltIn$2(target, key, sourceProperty, options);
 	  }
@@ -1693,20 +1752,20 @@
 	  trim: createMethod$1(3)
 	};
 
-	var global$1 = global$b;
-	var fails$3 = fails$c;
+	var global$2 = global$c;
+	var fails$4 = fails$d;
 	var uncurryThis$3 = functionUncurryThis;
 	var toString$1 = toString$3;
 	var trim = stringTrim.trim;
 	var whitespaces = whitespaces$2;
 
 	var charAt = uncurryThis$3(''.charAt);
-	var n$ParseFloat = global$1.parseFloat;
-	var Symbol$1 = global$1.Symbol;
+	var n$ParseFloat = global$2.parseFloat;
+	var Symbol$1 = global$2.Symbol;
 	var ITERATOR = Symbol$1 && Symbol$1.iterator;
 	var FORCED = 1 / n$ParseFloat(whitespaces + '-0') !== -Infinity
 	  // MS Edge 18- broken with boxed symbols
-	  || (ITERATOR && !fails$3(function () { n$ParseFloat(Object(ITERATOR)); }));
+	  || (ITERATOR && !fails$4(function () { n$ParseFloat(Object(ITERATOR)); }));
 
 	// `parseFloat` method
 	// https://tc39.es/ecma262/#sec-parsefloat-string
@@ -1841,7 +1900,7 @@
 	};
 
 	var uncurryThis$1 = functionUncurryThis;
-	var fails$2 = fails$c;
+	var fails$3 = fails$d;
 	var isCallable = isCallable$c;
 	var classof$1 = classof$4;
 	var getBuiltIn = getBuiltIn$4;
@@ -1885,7 +1944,7 @@
 
 	// `IsConstructor` abstract operation
 	// https://tc39.es/ecma262/#sec-isconstructor
-	var isConstructor$1 = !construct || fails$2(function () {
+	var isConstructor$1 = !construct || fails$3(function () {
 	  var called;
 	  return isConstructorModern(isConstructorModern.call)
 	    || !isConstructorModern(Object)
@@ -1998,7 +2057,7 @@
 	  filterReject: createMethod(7)
 	};
 
-	var fails$1 = fails$c;
+	var fails$2 = fails$d;
 	var wellKnownSymbol = wellKnownSymbol$5;
 	var V8_VERSION = engineV8Version;
 
@@ -2008,7 +2067,7 @@
 	  // We can't use this feature detection in V8 since it causes
 	  // deoptimization and serious performance degradation
 	  // https://github.com/zloirock/core-js/issues/677
-	  return V8_VERSION >= 51 || !fails$1(function () {
+	  return V8_VERSION >= 51 || !fails$2(function () {
 	    var array = [];
 	    var constructor = array.constructor = {};
 	    constructor[SPECIES] = function () {
@@ -2176,14 +2235,14 @@
 	var defineBuiltIn = defineBuiltIn$3;
 	var anObject = anObject$4;
 	var $toString = toString$3;
-	var fails = fails$c;
+	var fails$1 = fails$d;
 	var getRegExpFlags = regexpGetFlags;
 
 	var TO_STRING = 'toString';
 	var RegExpPrototype = RegExp.prototype;
 	var n$ToString = RegExpPrototype[TO_STRING];
 
-	var NOT_GENERIC = fails(function () { return n$ToString.call({ source: 'a', flags: 'b' }) != '/a/b'; });
+	var NOT_GENERIC = fails$1(function () { return n$ToString.call({ source: 'a', flags: 'b' }) != '/a/b'; });
 	// FF44- RegExp#toString has a wrong name
 	var INCORRECT_NAME = PROPER_FUNCTION_NAME && n$ToString.name != TO_STRING;
 
@@ -2231,7 +2290,9 @@
 	  }, {
 	    key: "render",
 	    value: function render() {
-	      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "The current time is ", this.state.date.toString()));
+	      return /*#__PURE__*/React.createElement("div", {
+	        className: "normal-clock"
+	      }, /*#__PURE__*/React.createElement("p", null, "The current time is ", this.state.date.toString()));
 	    }
 	  }]);
 
@@ -2255,7 +2316,7 @@
 	    };
 	    setInterval(function () {
 	      return _this.setTick();
-	    }, 100);
+	    }, 1000);
 	    return _this;
 	  }
 
@@ -2274,13 +2335,242 @@
 	    value: function render() {
 	      return /*#__PURE__*/React.createElement("div", {
 	        className: "counter"
-	      }, /*#__PURE__*/React.createElement("p", null, this.state.tick));
+	      }, /*#__PURE__*/React.createElement("h3", null, "Custom Counter"), /*#__PURE__*/React.createElement("p", null, "Counter: ", this.state.tick));
 	    }
 	  }]);
 
 	  return Counter;
 	}(React.Component);
 
+	function ClockUsingHooks() {
+	  var _useState = react.exports.useState(new Date()),
+	      _useState2 = _slicedToArray(_useState, 2),
+	      currentDateTime = _useState2[0],
+	      setCurrentDateTime = _useState2[1];
+
+	  setInterval(function () {
+	    return setCurrentDateTime(new Date());
+	  }, 1000);
+	  return /*#__PURE__*/React.createElement("div", {
+	    className: "clock-using-hooks"
+	  }, /*#__PURE__*/React.createElement("p", null, "This is the date from a functional stateful component"), /*#__PURE__*/React.createElement("p", null, "Current Time is: ", currentDateTime.toTimeString()));
+	}
+
+	// iterable DOM collections
+	// flag - `iterable` interface - 'entries', 'keys', 'values', 'forEach' methods
+	var domIterables = {
+	  CSSRuleList: 0,
+	  CSSStyleDeclaration: 0,
+	  CSSValueList: 0,
+	  ClientRectList: 0,
+	  DOMRectList: 0,
+	  DOMStringList: 0,
+	  DOMTokenList: 1,
+	  DataTransferItemList: 0,
+	  FileList: 0,
+	  HTMLAllCollection: 0,
+	  HTMLCollection: 0,
+	  HTMLFormElement: 0,
+	  HTMLSelectElement: 0,
+	  MediaList: 0,
+	  MimeTypeArray: 0,
+	  NamedNodeMap: 0,
+	  NodeList: 1,
+	  PaintRequestList: 0,
+	  Plugin: 0,
+	  PluginArray: 0,
+	  SVGLengthList: 0,
+	  SVGNumberList: 0,
+	  SVGPathSegList: 0,
+	  SVGPointList: 0,
+	  SVGStringList: 0,
+	  SVGTransformList: 0,
+	  SourceBufferList: 0,
+	  StyleSheetList: 0,
+	  TextTrackCueList: 0,
+	  TextTrackList: 0,
+	  TouchList: 0
+	};
+
+	// in old WebKit versions, `element.classList` is not an instance of global `DOMTokenList`
+	var documentCreateElement = documentCreateElement$1;
+
+	var classList = documentCreateElement('span').classList;
+	var DOMTokenListPrototype$1 = classList && classList.constructor && classList.constructor.prototype;
+
+	var domTokenListPrototype = DOMTokenListPrototype$1 === Object.prototype ? undefined : DOMTokenListPrototype$1;
+
+	var fails = fails$d;
+
+	var arrayMethodIsStrict$1 = function (METHOD_NAME, argument) {
+	  var method = [][METHOD_NAME];
+	  return !!method && fails(function () {
+	    // eslint-disable-next-line no-useless-call -- required for testing
+	    method.call(null, argument || function () { return 1; }, 1);
+	  });
+	};
+
+	var $forEach = arrayIteration.forEach;
+	var arrayMethodIsStrict = arrayMethodIsStrict$1;
+
+	var STRICT_METHOD = arrayMethodIsStrict('forEach');
+
+	// `Array.prototype.forEach` method implementation
+	// https://tc39.es/ecma262/#sec-array.prototype.foreach
+	var arrayForEach = !STRICT_METHOD ? function forEach(callbackfn /* , thisArg */) {
+	  return $forEach(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+	// eslint-disable-next-line es-x/no-array-prototype-foreach -- safe
+	} : [].forEach;
+
+	var global$1 = global$c;
+	var DOMIterables = domIterables;
+	var DOMTokenListPrototype = domTokenListPrototype;
+	var forEach = arrayForEach;
+	var createNonEnumerableProperty = createNonEnumerableProperty$3;
+
+	var handlePrototype = function (CollectionPrototype) {
+	  // some Chrome versions have non-configurable methods on DOMTokenList
+	  if (CollectionPrototype && CollectionPrototype.forEach !== forEach) try {
+	    createNonEnumerableProperty(CollectionPrototype, 'forEach', forEach);
+	  } catch (error) {
+	    CollectionPrototype.forEach = forEach;
+	  }
+	};
+
+	for (var COLLECTION_NAME in DOMIterables) {
+	  if (DOMIterables[COLLECTION_NAME]) {
+	    handlePrototype(global$1[COLLECTION_NAME] && global$1[COLLECTION_NAME].prototype);
+	  }
+	}
+
+	handlePrototype(DOMTokenListPrototype);
+
+	function ExpenseEntryItemListFn(props) {
+	  var _useState = react.exports.useState(props.items),
+	      _useState2 = _slicedToArray(_useState, 2),
+	      items = _useState2[0],
+	      setItems = _useState2[1];
+
+	  function handleMouseEnter(e) {
+	    e.target.parentNode.classList.add("highlight");
+	  }
+
+	  function handleMouseLeave(e) {
+	    e.target.parentNode.classList.remove("highlight");
+	  }
+
+	  function handleMouseOver(e) {
+	    console.log("The mouse is at (" + e.clientX + ", " + e.clientY + ")");
+	  }
+
+	  function handleDelete(id, e) {
+	    e.preventDefault();
+	    console.log(id);
+	    var newItems = [];
+	    items.forEach(function (item, idx) {
+	      if (item.id != id) newItems.push(item);
+	    });
+	    setItems(newItems);
+	  }
+
+	  function getTotal() {
+	    var total = 0;
+
+	    for (var i = 0; i < items.length; i++) {
+	      total += items[i].amount;
+	    }
+
+	    return total;
+	  }
+
+	  var lists = items.map(function (item) {
+	    return /*#__PURE__*/React.createElement("tr", {
+	      key: item.id,
+	      onMouseEnter: handleMouseEnter,
+	      onMouseLeave: handleMouseLeave
+	    }, /*#__PURE__*/React.createElement("td", null, item.name), /*#__PURE__*/React.createElement("td", null, item.amount), /*#__PURE__*/React.createElement("td", null, new Date(item.spendDate).toDateString()), /*#__PURE__*/React.createElement("td", null, item.category), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("a", {
+	      href: "#",
+	      onClick: function onClick(e) {
+	        return handleDelete(item.id, e);
+	      }
+	    }, "Remove")));
+	  });
+	  return /*#__PURE__*/React.createElement("table", {
+	    onMouseOver: handleMouseOver
+	  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Item"), /*#__PURE__*/React.createElement("th", null, "Amount"), /*#__PURE__*/React.createElement("th", null, "Date"), /*#__PURE__*/React.createElement("th", null, "Category"), /*#__PURE__*/React.createElement("th", null, "Remove"))), /*#__PURE__*/React.createElement("tbody", null, lists, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
+	    colSpan: "1",
+	    style: {
+	      textAlign: "right"
+	    }
+	  }, "Total Amount"), /*#__PURE__*/React.createElement("td", {
+	    colSpan: "4",
+	    style: {
+	      textAlign: "left"
+	    }
+	  }, getTotal()))));
+	}
+
+	var items = [{
+	  id: 1,
+	  name: "Pizza",
+	  amount: 80,
+	  spendDate: "2020-10-10",
+	  category: "Food"
+	}, {
+	  id: 2,
+	  name: "Grape Juice",
+	  amount: 30,
+	  spendDate: "2020-10-12",
+	  category: "Food"
+	}, {
+	  id: 3,
+	  name: "Cinema",
+	  amount: 210,
+	  spendDate: "2020-10-16",
+	  category: "Entertainment"
+	}, {
+	  id: 4,
+	  name: "Java Programming book",
+	  amount: 242,
+	  spendDate: "2020-10-15",
+	  category: "Academic"
+	}, {
+	  id: 5,
+	  name: "Mango Juice",
+	  amount: 35,
+	  spendDate: "2020-10-16",
+	  category: "Food"
+	}, {
+	  id: 6,
+	  name: "Dress",
+	  amount: 2000,
+	  spendDate: "2020-10-25",
+	  category: "Cloth"
+	}, {
+	  id: 7,
+	  name: "Tour",
+	  amount: 2555,
+	  spendDate: "2020-10-29",
+	  category: "Entertainment"
+	}, {
+	  id: 8,
+	  name: "Meals",
+	  amount: 300,
+	  spendDate: "2020-10-30",
+	  category: "Food"
+	}, {
+	  id: 9,
+	  name: "Mobile",
+	  amount: 3500,
+	  spendDate: "2020-11-02",
+	  category: "Gadgets"
+	}, {
+	  id: 10,
+	  name: "Exam Fees",
+	  amount: 1245,
+	  spendDate: "2020-11-04",
+	  category: "Academic"
+	}];
 	var item = [{
 	  "id": 1,
 	  "item": "Mango Juice",
@@ -2307,6 +2597,8 @@
 	  list: "Hot Dogs, Buns, Mustard"
 	}), /*#__PURE__*/React.createElement(ExpenseEntryItemList, {
 	  items: item
-	}), /*#__PURE__*/React.createElement(Clock, null), /*#__PURE__*/React.createElement(Counter, null)), document.getElementById('root'));
+	}), /*#__PURE__*/React.createElement(Clock, null), /*#__PURE__*/React.createElement(Counter, null), /*#__PURE__*/React.createElement(ClockUsingHooks, null), /*#__PURE__*/React.createElement(ExpenseEntryItemListFn, {
+	  items: items
+	})), document.getElementById('root'));
 
 })();
