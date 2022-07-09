@@ -2095,7 +2095,6 @@
 	  return MessageWithEvent;
 	}(React.Component);
 
-	debugger;
 	var item = [{
 	  "id": 1,
 	  "item": "Mango Juice",
