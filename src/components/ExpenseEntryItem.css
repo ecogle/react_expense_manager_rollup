@@ -32,6 +32,6 @@ tr:nth-child(odd) td{
 }
 
 tr.highlight td{
-    background-color: rgb(226, 234, 13);
-    color: red;
+    background-color: rgb(251, 251, 177);
+    color: rgb(28, 93, 139);
 }
