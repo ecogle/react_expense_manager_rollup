@@ -573,6 +573,8 @@
 	  };
 	}
 
+	var date = new Date().toTimeString();
+
 	var HelloWorld = /*#__PURE__*/function (_React$Component) {
 	  _inherits(HelloWorld, _React$Component);
 
@@ -587,13 +589,77 @@
 	  _createClass(HelloWorld, [{
 	    key: "render",
 	    value: function render() {
-	      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Hello World!"));
+	      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Hello World!"), /*#__PURE__*/React.createElement("p", null, "The time is ", date));
 	    }
 	  }]);
 
 	  return HelloWorld;
 	}(React.Component);
 
-	ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(HelloWorld, null)), document.getElementById('root'));
+	function styleInject(css, ref) {
+	  if ( ref === void 0 ) ref = {};
+	  var insertAt = ref.insertAt;
+
+	  if (!css || typeof document === 'undefined') { return; }
+
+	  var head = document.head || document.getElementsByTagName('head')[0];
+	  var style = document.createElement('style');
+	  style.type = 'text/css';
+
+	  if (insertAt === 'top') {
+	    if (head.firstChild) {
+	      head.insertBefore(style, head.firstChild);
+	    } else {
+	      head.appendChild(style);
+	    }
+	  } else {
+	    head.appendChild(style);
+	  }
+
+	  if (style.styleSheet) {
+	    style.styleSheet.cssText = css;
+	  } else {
+	    style.appendChild(document.createTextNode(css));
+	  }
+	}
+
+	var css_248z = ".ee_items{\r\n    border: 1px solid coral;\r\n    width:15%;\r\n}\r\n.ee_items *{\r\n    padding: 3px;\r\n}\r\n.ee_items div em{\r\n    text-decoration: underline;\r\n}";
+	styleInject(css_248z);
+
+	var ExpenseEntryItem = /*#__PURE__*/function (_React$Component) {
+	  _inherits(ExpenseEntryItem, _React$Component);
+
+	  var _super = _createSuper(ExpenseEntryItem);
+
+	  function ExpenseEntryItem() {
+	    _classCallCheck(this, ExpenseEntryItem);
+
+	    return _super.apply(this, arguments);
+	  }
+
+	  _createClass(ExpenseEntryItem, [{
+	    key: "render",
+	    value: function render() {
+	      return /*#__PURE__*/React.createElement("div", {
+	        className: "ee_items"
+	      }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Item:"), " ", /*#__PURE__*/React.createElement("em", null, "Mango Juice")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Amount:"), " ", /*#__PURE__*/React.createElement("em", null, "30.00")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Spend Date:"), " ", /*#__PURE__*/React.createElement("em", null, "2020-10-10")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Category:"), " ", /*#__PURE__*/React.createElement("em", null, "Food")));
+	    }
+	  }]);
+
+	  return ExpenseEntryItem;
+	}(React.Component);
+
+	function WidgetElement(props) {
+	  var name = props.name;
+	  var list = props.list;
+	  return /*#__PURE__*/React.createElement("div", {
+	    className: "ee_name"
+	  }, /*#__PURE__*/React.createElement("p", null, "Hello ", name, ", here is my list: ", list));
+	}
+
+	ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(HelloWorld, null), /*#__PURE__*/React.createElement(ExpenseEntryItem, null), /*#__PURE__*/React.createElement(WidgetElement, {
+	  name: "Chad",
+	  list: "Hot Dogs, Buns, Mustard"
+	})), document.getElementById('root'));
 
 })();

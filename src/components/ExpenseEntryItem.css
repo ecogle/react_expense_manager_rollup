@@ -1,0 +1,10 @@
+.ee_items{
+    border: 1px solid coral;
+    width:15%;
+}
+.ee_items *{
+    padding: 3px;
+}
+.ee_items div em{
+    text-decoration: underline;
+}
