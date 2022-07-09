@@ -623,8 +623,8 @@
 	  }
 	}
 
-	var css_248z = ".ee_items{\r\n    border: 1px solid coral;\r\n    width:15%;\r\n}\r\n.ee_items *{\r\n    padding: 3px;\r\n}\r\n.ee_items div em{\r\n    text-decoration: underline;\r\n}";
-	styleInject(css_248z);
+	var css_248z$1 = ".ee_items{\r\n    border: 1px solid coral;\r\n    width:15%;\r\n}\r\n.ee_items *{\r\n    padding: 3px;\r\n}\r\n.ee_items div em{\r\n    text-decoration: underline;\r\n}";
+	styleInject(css_248z$1);
 
 	var ExpenseEntryItem = /*#__PURE__*/function (_React$Component) {
 	  _inherits(ExpenseEntryItem, _React$Component);
@@ -649,11 +649,15 @@
 	  return ExpenseEntryItem;
 	}(React.Component);
 
+	var css_248z = "div.ExpenseEntryItem-module_itemStyle__fyiN5{\r\n    color:brown;\r\n    font-size: 14pt;\r\n    font-family: 'Times New Roman', Times, serif;\r\n}";
+	var mine = {"itemStyle":"ExpenseEntryItem-module_itemStyle__fyiN5"};
+	styleInject(css_248z);
+
 	function WidgetElement(props) {
 	  var name = props.name;
 	  var list = props.list;
 	  return /*#__PURE__*/React.createElement("div", {
-	    className: "ee_name"
+	    className: mine.itemStyle
 	  }, /*#__PURE__*/React.createElement("p", null, "Hello ", name, ", here is my list: ", list));
 	}
 

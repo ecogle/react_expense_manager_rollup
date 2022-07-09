@@ -1,6 +1,5 @@
 import React from "react";
-import { ReactDOM } from "react";
-
+import mine from "./ExpenseEntryItem.module.css";
 
 
 function WidgetElement(props) {
@@ -10,11 +9,10 @@ function WidgetElement(props) {
     const list = props.list;
 
     return(
-        <div className="ee_name">
+        <div className={mine.itemStyle}>
             <p>Hello {name}, here is my list: {list}</p>
         </div>
-    )
-    
+    )    
 }
 
 export default WidgetElement;
