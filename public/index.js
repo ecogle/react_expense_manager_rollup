@@ -2198,7 +2198,7 @@
 	  }, { unsafe: true });
 	}
 
-	/*#__PURE__*/(function (_React$Component) {
+	var Clock = /*#__PURE__*/function (_React$Component) {
 	  _inherits(Clock, _React$Component);
 
 	  var _super = _createSuper(Clock);
@@ -2236,7 +2236,7 @@
 	  }]);
 
 	  return Clock;
-	})(React.Component);
+	}(React.Component);
 
 	var Counter = /*#__PURE__*/function (_React$Component) {
 	  _inherits(Counter, _React$Component);
@@ -2262,7 +2262,6 @@
 	  _createClass(Counter, [{
 	    key: "setTick",
 	    value: function setTick() {
-	      debugger;
 	      var num = this.num++;
 	      this.setState(function (state, props) {
 	        return {
@@ -2308,6 +2307,6 @@
 	  list: "Hot Dogs, Buns, Mustard"
 	}), /*#__PURE__*/React.createElement(ExpenseEntryItemList, {
 	  items: item
-	}), /*#__PURE__*/React.createElement(Counter, null)), document.getElementById('root'));
+	}), /*#__PURE__*/React.createElement(Clock, null), /*#__PURE__*/React.createElement(Counter, null)), document.getElementById('root'));
 
 })();

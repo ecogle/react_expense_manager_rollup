@@ -39,7 +39,7 @@ ReactDOM.render(
       <WidgetElement name="Chad" list="Hot Dogs, Buns, Mustard"/>
       <ExpenseEntryItemList items={item}/>
       {/* <MessageWithEvent name="Chad"/> */}
-      {/*<Clock />*/}
+      <Clock />
       <Counter />
    </React.StrictMode>,
    document.getElementById('root')

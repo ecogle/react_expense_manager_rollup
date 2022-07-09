@@ -11,7 +11,6 @@ class Counter extends React.Component{
     }
 
     setTick(){
-        debugger;
         let num = this.num++;
         this.setState((state,props) => ({
             "tick":num++,
