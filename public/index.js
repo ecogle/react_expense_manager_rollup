@@ -625,7 +625,7 @@
 	  }
 	}
 
-	var css_248z$1 = ".ee_items{\r\n    border: 1px solid coral;\r\n    width:15%;\r\n}\r\n.ee_items *{\r\n    padding: 3px;\r\n}\r\n.ee_items div em{\r\n    text-decoration: underline;\r\n}\r\ntable, th, tr, td{\r\n    border:1px solid black;\r\n    border-collapse: collapse;\r\n}\r\ntable td{\r\n    text-align: right;\r\n    padding:2px;\r\n    width:100px;\r\n}\r\n\r\ntd:first-child{\r\n    text-align: center;\r\n    font-weight: bold;\r\n}";
+	var css_248z$1 = ".ee_items{\r\n    border: 1px solid coral;\r\n    width:15%;\r\n}\r\n.ee_items *{\r\n    padding: 3px;\r\n}\r\n.ee_items div em{\r\n    text-decoration: underline;\r\n}\r\ntable, th, tr, td{\r\n    border:1px solid black;\r\n    border-collapse: collapse;\r\n}\r\ntable td{\r\n    text-align: right;\r\n    padding:2px;\r\n    width:100px;\r\n}\r\n\r\ntd:first-child{\r\n    text-align: center;\r\n    font-weight: bold;\r\n}\r\n\r\ntr:nth-child(even) td{\r\n    background-color: bisque;\r\n}\r\n\r\ntr:nth-child(odd) td{\r\n    background-color: white;\r\n}";
 	styleInject(css_248z$1);
 
 	var css_248z = "div.ExpenseEntryItem-module_itemStyle__fyiN5{\r\n    color:brown;\r\n    font-size: 14pt;\r\n    font-family: 'Times New Roman', Times, serif;\r\n}\r\n\r\n.ExpenseEntryItem-module_hidden__B-jO8{\r\n    display: none;\r\n}";
@@ -2076,6 +2076,12 @@
 	  "item": "Orange Juice",
 	  "amount": 20.7,
 	  "spend_date": "8-15-2020",
+	  "category": "food"
+	}, {
+	  "id": 3,
+	  "item": "Peach Juice",
+	  "spend_date": "09-15-2021",
+	  "amount": 40.3,
 	  "category": "food"
 	}];
 	ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(HelloWorld, null), /*#__PURE__*/React.createElement(ExpenseEntryItem, {

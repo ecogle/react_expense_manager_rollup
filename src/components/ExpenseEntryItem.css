@@ -22,3 +22,11 @@ td:first-child{
     text-align: center;
     font-weight: bold;
 }
+
+tr:nth-child(even) td{
+    background-color: bisque;
+}
+
+tr:nth-child(odd) td{
+    background-color: white;
+}

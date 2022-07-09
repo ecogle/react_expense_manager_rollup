@@ -20,6 +20,13 @@ const item =
       "amount":20.7,
       "spend_date":"8-15-2020",
       "category":"food",
+   },
+   {
+      "id":3,
+      "item":"Peach Juice",
+      "spend_date":"09-15-2021",
+      "amount":40.3,
+      "category":"food",
    }]
 
 ReactDOM.render(
