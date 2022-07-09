@@ -4,8 +4,8 @@ import HelloWorld from './components/HelloWorld';
 import ExpenseEntryItem from './components/ExpenseEntryItem';
 import WidgetElement from './components/Widget';
 import ExpenseEntryItemList from './components/ExpenseEntryItemList';
+import MessageWithEvent from './components/MessageWithEvent';
 
-debugger;
 const item = 
    [{
       "id":1,
@@ -35,6 +35,7 @@ ReactDOM.render(
       <ExpenseEntryItem items={item}/>
       <WidgetElement name="Chad" list="Hot Dogs, Buns, Mustard"/>
       <ExpenseEntryItemList items={item}/>
+      <MessageWithEvent name="Chad"/>
    </React.StrictMode>,
    document.getElementById('root')
 );

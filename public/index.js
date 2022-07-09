@@ -2047,7 +2047,6 @@
 	  _createClass(ExpenseEntryItemList, [{
 	    key: "render",
 	    value: function render() {
-	      debugger;
 	      var lists = this.props.items.map(function (k) {
 	        return /*#__PURE__*/React.createElement("tr", {
 	          key: k.id
@@ -2062,6 +2061,38 @@
 	  }]);
 
 	  return ExpenseEntryItemList;
+	}(React.Component);
+
+	var MessageWithEvent = /*#__PURE__*/function (_React$Component) {
+	  _inherits(MessageWithEvent, _React$Component);
+
+	  var _super = _createSuper(MessageWithEvent);
+
+	  function MessageWithEvent(props) {
+	    var _this;
+
+	    _classCallCheck(this, MessageWithEvent);
+
+	    _this = _super.call(this, props);
+	    _this.logEventToConsole = _this.logEventToConsole.bind();
+	    return _this;
+	  }
+
+	  _createClass(MessageWithEvent, [{
+	    key: "logEventToConsole",
+	    value: function logEventToConsole(e) {
+	      alert(e.target.innerHTML);
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      return /*#__PURE__*/React.createElement("div", {
+	        onClick: this.logEventToConsole
+	      }, /*#__PURE__*/React.createElement("p", null, "Hello ", this.props.name, "!"));
+	    }
+	  }]);
+
+	  return MessageWithEvent;
 	}(React.Component);
 
 	debugger;
@@ -2091,6 +2122,8 @@
 	  list: "Hot Dogs, Buns, Mustard"
 	}), /*#__PURE__*/React.createElement(ExpenseEntryItemList, {
 	  items: item
+	}), /*#__PURE__*/React.createElement(MessageWithEvent, {
+	  name: "Chad"
 	})), document.getElementById('root'));
 
 })();

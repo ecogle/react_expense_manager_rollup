@@ -8,7 +8,6 @@ class ExpenseEntryItemList extends React.Component{
     }
     
     render(){
-        debugger;
         const lists = this.props.items.map( (k) =>
             <tr key={k.id}>
                 <td>{k.item}</td>
