@@ -625,7 +625,7 @@
 	  }
 	}
 
-	var css_248z$1 = ".ee_items{\r\n    border: 1px solid coral;\r\n    width:15%;\r\n}\r\n.ee_items *{\r\n    padding: 3px;\r\n}\r\n.ee_items div em{\r\n    text-decoration: underline;\r\n}\r\ntable, th, tr, td{\r\n    border:1px solid black;\r\n    border-collapse: collapse;\r\n}\r\ntable td{\r\n    text-align: right;\r\n    padding:2px;\r\n    width:100px;\r\n}\r\n\r\ntd:first-child{\r\n    text-align: center;\r\n    font-weight: bold;\r\n}\r\n\r\ntr:nth-child(even) td{\r\n    background-color: bisque;\r\n}\r\n\r\ntr:nth-child(odd) td{\r\n    background-color: white;\r\n}";
+	var css_248z$1 = ".ee_items{\r\n    border: 1px solid coral;\r\n    width:15%;\r\n}\r\n.ee_items *{\r\n    padding: 3px;\r\n}\r\n.ee_items div em{\r\n    text-decoration: underline;\r\n}\r\ntable, th, tr, td{\r\n    border:1px solid black;\r\n    border-collapse: collapse;\r\n}\r\ntable td{\r\n    text-align: right;\r\n    padding:2px;\r\n    width:100px;\r\n}\r\n\r\ntd:first-child{\r\n    text-align: center;\r\n    font-weight: bold;\r\n}\r\n\r\ntr:nth-child(even) td{\r\n    background-color: bisque;\r\n}\r\n\r\ntr:nth-child(odd) td{\r\n    background-color: white;\r\n}\r\n\r\ntr.highlight td{\r\n    background-color: rgb(226, 234, 13);\r\n    color: red;\r\n}";
 	styleInject(css_248z$1);
 
 	var css_248z = "div.ExpenseEntryItem-module_itemStyle__fyiN5{\r\n    color:brown;\r\n    font-size: 14pt;\r\n    font-family: 'Times New Roman', Times, serif;\r\n}\r\n\r\n.ExpenseEntryItem-module_hidden__B-jO8{\r\n    display: none;\r\n}";
@@ -2039,17 +2039,43 @@
 	  var _super = _createSuper(ExpenseEntryItemList);
 
 	  function ExpenseEntryItemList(props) {
+	    var _this;
+
 	    _classCallCheck(this, ExpenseEntryItemList);
 
-	    return _super.call(this, props);
+	    _this = _super.call(this, props);
+	    _this.handleMouseEnter = _this.handleMouseEnter.bind();
+	    _this.handleMouseLeave = _this.handleMouseLeave.bind();
+	    _this.handleMouseOver = _this.handleMouseOver.bind();
+	    return _this;
 	  }
 
 	  _createClass(ExpenseEntryItemList, [{
+	    key: "handleMouseEnter",
+	    value: function handleMouseEnter(e) {
+	      e.target.parentNode.classList.add("highlight");
+	    }
+	  }, {
+	    key: "handleMouseLeave",
+	    value: function handleMouseLeave(e) {
+	      e.target.parentNode.classList.remove("highlight");
+	    }
+	  }, {
+	    key: "handleMouseOver",
+	    value: function handleMouseOver(e) {
+	      console.log("The mouse is at (" + e.clientX + ", " + e.clientY + ")");
+	    }
+	  }, {
 	    key: "render",
 	    value: function render() {
+	      var _this2 = this;
+
 	      var lists = this.props.items.map(function (k) {
 	        return /*#__PURE__*/React.createElement("tr", {
-	          key: k.id
+	          key: k.id,
+	          onMouseEnter: _this2.handleMouseEnter,
+	          onMouseLeave: _this2.handleMouseLeave,
+	          onMouseOver: _this2.handleMouseOver
 	        }, /*#__PURE__*/React.createElement("td", null, k.item), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(FormattedMoney, {
 	          value: k.amount
 	        })), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(FormattedDate, {
@@ -2063,7 +2089,7 @@
 	  return ExpenseEntryItemList;
 	}(React.Component);
 
-	var MessageWithEvent = /*#__PURE__*/function (_React$Component) {
+	/*#__PURE__*/(function (_React$Component) {
 	  _inherits(MessageWithEvent, _React$Component);
 
 	  var _super = _createSuper(MessageWithEvent);
@@ -2073,15 +2099,16 @@
 
 	    _classCallCheck(this, MessageWithEvent);
 
-	    _this = _super.call(this, props);
-	    _this.logEventToConsole = _this.logEventToConsole.bind();
+	    _this = _super.call(this, props); //passes extra information to the eventhandler
+
+	    _this.logEventToConsole = _this.logEventToConsole.bind(_assertThisInitialized(_this), Math.floor(Math.random() * 10));
 	    return _this;
 	  }
 
 	  _createClass(MessageWithEvent, [{
 	    key: "logEventToConsole",
-	    value: function logEventToConsole(e) {
-	      console.log(e.target.innerHTML);
+	    value: function logEventToConsole(msgid, e) {
+	      alert(msgid + " " + e.target.innerHTML);
 	    }
 	  }, {
 	    key: "render",
@@ -2093,7 +2120,7 @@
 	  }]);
 
 	  return MessageWithEvent;
-	}(React.Component);
+	})(React.Component);
 
 	var item = [{
 	  "id": 1,
@@ -2121,8 +2148,6 @@
 	  list: "Hot Dogs, Buns, Mustard"
 	}), /*#__PURE__*/React.createElement(ExpenseEntryItemList, {
 	  items: item
-	}), /*#__PURE__*/React.createElement(MessageWithEvent, {
-	  name: "Chad"
 	})), document.getElementById('root'));
 
 })();

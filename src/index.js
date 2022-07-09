@@ -35,7 +35,7 @@ ReactDOM.render(
       <ExpenseEntryItem items={item}/>
       <WidgetElement name="Chad" list="Hot Dogs, Buns, Mustard"/>
       <ExpenseEntryItemList items={item}/>
-      <MessageWithEvent name="Chad"/>
+      {/* <MessageWithEvent name="Chad"/> */}
    </React.StrictMode>,
    document.getElementById('root')
 );

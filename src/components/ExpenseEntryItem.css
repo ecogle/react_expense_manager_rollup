@@ -30,3 +30,8 @@ tr:nth-child(even) td{
 tr:nth-child(odd) td{
     background-color: white;
 }
+
+tr.highlight td{
+    background-color: rgb(226, 234, 13);
+    color: red;
+}

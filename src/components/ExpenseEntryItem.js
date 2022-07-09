@@ -7,7 +7,10 @@ import FormattedDate from "./FormattedDate";
 class ExpenseEntryItem extends React.Component{
     constructor(props){
         super(props)
+        
     }
+
+    
     render(){
         return(
         <div className="ee_items">
