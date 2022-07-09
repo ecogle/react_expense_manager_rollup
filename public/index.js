@@ -631,18 +631,19 @@
 
 	  var _super = _createSuper(ExpenseEntryItem);
 
-	  function ExpenseEntryItem() {
+	  function ExpenseEntryItem(props) {
 	    _classCallCheck(this, ExpenseEntryItem);
 
-	    return _super.apply(this, arguments);
+	    return _super.call(this, props);
 	  }
 
 	  _createClass(ExpenseEntryItem, [{
 	    key: "render",
 	    value: function render() {
+	      debugger;
 	      return /*#__PURE__*/React.createElement("div", {
 	        className: "ee_items"
-	      }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Item:"), " ", /*#__PURE__*/React.createElement("em", null, "Mango Juice")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Amount:"), " ", /*#__PURE__*/React.createElement("em", null, "30.00")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Spend Date:"), " ", /*#__PURE__*/React.createElement("em", null, "2020-10-10")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Category:"), " ", /*#__PURE__*/React.createElement("em", null, "Food")));
+	      }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Item:"), " ", /*#__PURE__*/React.createElement("em", null, this.props.items.item)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Amount:"), " ", /*#__PURE__*/React.createElement("em", null, this.props.items.amount)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Spend Date:"), " ", /*#__PURE__*/React.createElement("em", null, this.props.items.spend_date)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Category:"), " ", /*#__PURE__*/React.createElement("em", null, this.props.items.category)));
 	    }
 	  }]);
 
@@ -661,7 +662,15 @@
 	  }, /*#__PURE__*/React.createElement("p", null, "Hello ", name, ", here is my list: ", list));
 	}
 
-	ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(HelloWorld, null), /*#__PURE__*/React.createElement(ExpenseEntryItem, null), /*#__PURE__*/React.createElement(WidgetElement, {
+	var item = {
+	  "item": "Mango Juice",
+	  "amount": 30.00,
+	  "spend_date": "10-10-2020",
+	  "category": "food"
+	};
+	ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(HelloWorld, null), /*#__PURE__*/React.createElement(ExpenseEntryItem, {
+	  items: item
+	}), /*#__PURE__*/React.createElement(WidgetElement, {
 	  name: "Chad",
 	  list: "Hot Dogs, Buns, Mustard"
 	})), document.getElementById('root'));
