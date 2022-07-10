@@ -1,7 +1,9 @@
 import React from "react";
 import FormattedMoney from "./FormattedMoney";
 import FormattedDate from "./FormattedDate";
+import Logger from "./Logger";
 
+const logger = new Logger();
 
 class ExpenseEntryItemList extends React.Component{
     constructor(props){
@@ -19,8 +21,31 @@ class ExpenseEntryItemList extends React.Component{
     }
 
     handleMouseOver(e){
-        console.log("The mouse is at (" + e.clientX + ", " + e.clientY + ")");
+        logger.log("The mouse is at (" + e.clientX + ", " + e.clientY + ")");
     }
+
+    componentDidMount(){
+        logger.log("ExpenseEntryItemList :: Initialize :: componentDidMount :: Component mounted");
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        logger.log("ExpenseEntryItemList :: Update :: shouldComponentUpdate invoked :: Before update");
+        return true;
+     }
+     static getDerivedStateFromProps(props, state) {
+        logger.log("ExpenseEntryItemList :: Initialize / Update :: getDerivedStateFromProps :: Before update");
+        return null;
+     }
+     getSnapshotBeforeUpdate(prevProps, prevState) {
+        logger.log("ExpenseEntryItemList :: Update :: getSnapshotBeforeUpdate :: Before update");
+        return null;
+     }
+     componentDidUpdate(prevProps, prevState, snapshot) {
+        logger.log("ExpenseEntryItemList :: Update :: componentDidUpdate :: Component updated");
+     }
+     componentWillUnmount() {
+        logger.log("ExpenseEntryItemList :: Remove :: componentWillUnmount :: Component unmounted");
+     }
     render(){
         const lists = this.props.items.map( (k) =>
             <tr key={k.id} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} onMouseOver={this.handleMouseOver}>

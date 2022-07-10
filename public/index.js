@@ -492,6 +492,21 @@
 	  return Constructor;
 	}
 
+	function _defineProperty(obj, key, value) {
+	  if (key in obj) {
+	    Object.defineProperty(obj, key, {
+	      value: value,
+	      enumerable: true,
+	      configurable: true,
+	      writable: true
+	    });
+	  } else {
+	    obj[key] = value;
+	  }
+
+	  return obj;
+	}
+
 	function _inherits(subClass, superClass) {
 	  if (typeof superClass !== "function" && superClass !== null) {
 	    throw new TypeError("Super expression must either be null or a function");
@@ -2084,6 +2099,16 @@
 	  }
 	});
 
+	var Logger = /*#__PURE__*/_createClass(function Logger() {
+	  _classCallCheck(this, Logger);
+
+	  _defineProperty(this, "log", function (str) {
+	    console.log(str);
+	  });
+	});
+
+	var logger = new Logger();
+
 	/*#__PURE__*/(function (_React$Component) {
 	  _inherits(ExpenseEntryItemList, _React$Component);
 
@@ -2114,7 +2139,34 @@
 	  }, {
 	    key: "handleMouseOver",
 	    value: function handleMouseOver(e) {
-	      console.log("The mouse is at (" + e.clientX + ", " + e.clientY + ")");
+	      logger.log("The mouse is at (" + e.clientX + ", " + e.clientY + ")");
+	    }
+	  }, {
+	    key: "componentDidMount",
+	    value: function componentDidMount() {
+	      logger.log("ExpenseEntryItemList :: Initialize :: componentDidMount :: Component mounted");
+	    }
+	  }, {
+	    key: "shouldComponentUpdate",
+	    value: function shouldComponentUpdate(nextProps, nextState) {
+	      logger.log("ExpenseEntryItemList :: Update :: shouldComponentUpdate invoked :: Before update");
+	      return true;
+	    }
+	  }, {
+	    key: "getSnapshotBeforeUpdate",
+	    value: function getSnapshotBeforeUpdate(prevProps, prevState) {
+	      logger.log("ExpenseEntryItemList :: Update :: getSnapshotBeforeUpdate :: Before update");
+	      return null;
+	    }
+	  }, {
+	    key: "componentDidUpdate",
+	    value: function componentDidUpdate(prevProps, prevState, snapshot) {
+	      logger.log("ExpenseEntryItemList :: Update :: componentDidUpdate :: Component updated");
+	    }
+	  }, {
+	    key: "componentWillUnmount",
+	    value: function componentWillUnmount() {
+	      logger.log("ExpenseEntryItemList :: Remove :: componentWillUnmount :: Component unmounted");
 	    }
 	  }, {
 	    key: "render",
@@ -2134,6 +2186,12 @@
 	        })), /*#__PURE__*/React.createElement("td", null, k.category));
 	      });
 	      return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Item"), /*#__PURE__*/React.createElement("th", null, "Amount"), /*#__PURE__*/React.createElement("th", null, "Date"), /*#__PURE__*/React.createElement("th", null, "Category"))), /*#__PURE__*/React.createElement("tbody", null, lists));
+	    }
+	  }], [{
+	    key: "getDerivedStateFromProps",
+	    value: function getDerivedStateFromProps(props, state) {
+	      logger.log("ExpenseEntryItemList :: Initialize / Update :: getDerivedStateFromProps :: Before update");
+	      return null;
 	    }
 	  }]);
 
@@ -2334,6 +2392,31 @@
 	  return Counter;
 	})(React.Component);
 
+	function ClockUsingHooks() {
+	  var _useState = react.exports.useState(new Date()),
+	      _useState2 = _slicedToArray(_useState, 2),
+	      currentDateTime = _useState2[0],
+	      setCurrentDateTime = _useState2[1];
+
+	  setInterval(function () {
+	    return setCurrentDateTime(new Date());
+	  }, 1000);
+	  react.exports.useEffect(function () {
+	    var setTime = function setTime() {
+	      console.log("setTime is called");
+	      setCurrentDateTime(new Date());
+	    };
+
+	    var interval = setInterval(setTime, 1000);
+	    return function () {
+	      clearInterval(interval);
+	    };
+	  }, []);
+	  return /*#__PURE__*/React.createElement("div", {
+	    className: "clock-using-hooks"
+	  }, /*#__PURE__*/React.createElement("p", null, "This is the date from a functional stateful component"), /*#__PURE__*/React.createElement("p", null, "Current Time is: ", currentDateTime.toTimeString()));
+	}
+
 	// iterable DOM collections
 	// flag - `iterable` interface - 'entries', 'keys', 'values', 'forEach' methods
 	var domIterables = {
@@ -2423,72 +2506,7 @@
 
 	handlePrototype(DOMTokenListPrototype);
 
-	function ExpenseEntryItemListFn(props) {
-	  var _useState = react.exports.useState(props.items),
-	      _useState2 = _slicedToArray(_useState, 2),
-	      items = _useState2[0],
-	      setItems = _useState2[1];
-
-	  function handleMouseEnter(e) {
-	    e.target.parentNode.classList.add("highlight");
-	  }
-
-	  function handleMouseLeave(e) {
-	    e.target.parentNode.classList.remove("highlight");
-	  }
-
-	  function handleMouseOver(e) {
-	    console.log("The mouse is at (" + e.clientX + ", " + e.clientY + ")");
-	  }
-
-	  function handleDelete(id, e) {
-	    e.preventDefault();
-	    console.log(id);
-	    var newItems = [];
-	    items.forEach(function (item, idx) {
-	      if (item.id != id) newItems.push(item);
-	    });
-	    setItems(newItems);
-	  }
-
-	  function getTotal() {
-	    var total = 0;
-
-	    for (var i = 0; i < items.length; i++) {
-	      total += items[i].amount;
-	    }
-
-	    return total;
-	  }
-
-	  var lists = items.map(function (item) {
-	    return /*#__PURE__*/React.createElement("tr", {
-	      key: item.id,
-	      onMouseEnter: handleMouseEnter,
-	      onMouseLeave: handleMouseLeave
-	    }, /*#__PURE__*/React.createElement("td", null, item.name), /*#__PURE__*/React.createElement("td", null, item.amount), /*#__PURE__*/React.createElement("td", null, new Date(item.spendDate).toDateString()), /*#__PURE__*/React.createElement("td", null, item.category), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("a", {
-	      href: "#",
-	      onClick: function onClick(e) {
-	        return handleDelete(item.id, e);
-	      }
-	    }, "Remove")));
-	  });
-	  return /*#__PURE__*/React.createElement("table", {
-	    onMouseOver: handleMouseOver
-	  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Item"), /*#__PURE__*/React.createElement("th", null, "Amount"), /*#__PURE__*/React.createElement("th", null, "Date"), /*#__PURE__*/React.createElement("th", null, "Category"), /*#__PURE__*/React.createElement("th", null, "Remove"))), /*#__PURE__*/React.createElement("tbody", null, lists, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
-	    colSpan: "1",
-	    style: {
-	      textAlign: "right"
-	    }
-	  }, "Total Amount"), /*#__PURE__*/React.createElement("td", {
-	    colSpan: "4",
-	    style: {
-	      textAlign: "left"
-	    }
-	  }, getTotal()))));
-	}
-
-	var ClockWorkflow = /*#__PURE__*/function (_React$Component) {
+	/*#__PURE__*/(function (_React$Component) {
 	  _inherits(ClockWorkflow, _React$Component);
 
 	  var _super = _createSuper(ClockWorkflow);
@@ -2541,74 +2559,16 @@
 	  }]);
 
 	  return ClockWorkflow;
-	}(React.Component);
+	})(React.Component);
 
-	var items = [{
-	  id: 1,
-	  name: "Pizza",
-	  amount: 80,
-	  spendDate: "2020-10-10",
-	  category: "Food"
-	}, {
-	  id: 2,
-	  name: "Grape Juice",
-	  amount: 30,
-	  spendDate: "2020-10-12",
-	  category: "Food"
-	}, {
-	  id: 3,
-	  name: "Cinema",
-	  amount: 210,
-	  spendDate: "2020-10-16",
-	  category: "Entertainment"
-	}, {
-	  id: 4,
-	  name: "Java Programming book",
-	  amount: 242,
-	  spendDate: "2020-10-15",
-	  category: "Academic"
-	}, {
-	  id: 5,
-	  name: "Mango Juice",
-	  amount: 35,
-	  spendDate: "2020-10-16",
-	  category: "Food"
-	}, {
-	  id: 6,
-	  name: "Dress",
-	  amount: 2000,
-	  spendDate: "2020-10-25",
-	  category: "Cloth"
-	}, {
-	  id: 7,
-	  name: "Tour",
-	  amount: 2555,
-	  spendDate: "2020-10-29",
-	  category: "Entertainment"
-	}, {
-	  id: 8,
-	  name: "Meals",
-	  amount: 300,
-	  spendDate: "2020-10-30",
-	  category: "Food"
-	}, {
-	  id: 9,
-	  name: "Mobile",
-	  amount: 3500,
-	  spendDate: "2020-11-02",
-	  category: "Gadgets"
-	}, {
-	  id: 10,
-	  name: "Exam Fees",
-	  amount: 1245,
-	  spendDate: "2020-11-04",
-	  category: "Academic"
-	}];
-	ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(ExpenseEntryItemListFn, {
-	  items: items
-	}), /*#__PURE__*/React.createElement(ClockWorkflow, null)), document.getElementById('root'));
-	setTimeout(function () {
-	  ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "Clock is removed from the DOM."))), document.getElementById('root'));
-	}, 5000);
+	ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(ClockUsingHooks, null)), document.getElementById('root'));
+	/* setTimeout(() => {
+	   ReactDOM.render(
+	      <React.StrictMode>
+	         <div><p>Clock is removed from the DOM.</p></div>
+	      </React.StrictMode>,
+	      document.getElementById('root')
+	   );
+	}, 5000); */
 
 })();
