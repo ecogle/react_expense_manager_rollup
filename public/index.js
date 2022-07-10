@@ -2488,6 +2488,61 @@
 	  }, getTotal()))));
 	}
 
+	var ClockWorkflow = /*#__PURE__*/function (_React$Component) {
+	  _inherits(ClockWorkflow, _React$Component);
+
+	  var _super = _createSuper(ClockWorkflow);
+
+	  function ClockWorkflow(props) {
+	    var _this;
+
+	    _classCallCheck(this, ClockWorkflow);
+
+	    _this = _super.call(this, props);
+	    _this.state = {
+	      date: new Date()
+	    };
+	    return _this;
+	  }
+
+	  _createClass(ClockWorkflow, [{
+	    key: "componentDidMount",
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      alert("Component Mounted");
+	      this.setTimeRef = setInterval(function () {
+	        return _this2.setTime();
+	      }, 1000);
+	    }
+	  }, {
+	    key: "componentWillUnmount",
+	    value: function componentWillUnmount() {
+	      alert("Component Unmounted");
+	      clearInterval(this.setTimeRef);
+	    }
+	  }, {
+	    key: "setTime",
+	    value: function setTime() {
+	      console.log(this.state.date);
+	      this.setState(function () {
+	        return {
+	          date: new Date()
+	        };
+	      });
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      return /*#__PURE__*/React.createElement("div", {
+	        className: "normal-clock"
+	      }, /*#__PURE__*/React.createElement("p", null, "The current time is ", this.state.date.toString()));
+	    }
+	  }]);
+
+	  return ClockWorkflow;
+	}(React.Component);
+
 	var items = [{
 	  id: 1,
 	  name: "Pizza",
@@ -2551,6 +2606,9 @@
 	}];
 	ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(ExpenseEntryItemListFn, {
 	  items: items
-	})), document.getElementById('root'));
+	}), /*#__PURE__*/React.createElement(ClockWorkflow, null)), document.getElementById('root'));
+	setTimeout(function () {
+	  ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "Clock is removed from the DOM."))), document.getElementById('root'));
+	}, 5000);
 
 })();
